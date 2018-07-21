@@ -1,0 +1,74 @@
+APUNTES
+
+POO HERENCIAS ENTRE CLASES
+
+class camion extends coche{ V25,14:00 camion hereda los atributos y funciones de coche
+V25,18:30 Sobreescritura de métodos
+parent:: V25,22:00 Traer un método de la clase padre y añadirlo en el objeto de la clase hijo, 
+Modularización, encapsulación y modificadores de acceso (public, private y protected) entre objetos V26
+Funciones getters y setters V27
+static V28. Variables y métodos estáticos
+self:: V28,20:00
+
+
+
+CONSULTAS PREPARADAS PARA EVITAR INYECCIÓN. V48-49
+
+mysqli_real_escape_string($conexion, $_GET["usuario"]; V48,7:00
+mysqli_affected_rows($conexion); V48, 12:00
+mysqli_prepare($conexion, [sentencia sql]) V49,2:00
+Mysqli_stmt() /*objeto*/ V49,3:00
+mysqli_stmt_bind_param()
+mysqli_stmt_execute()
+mysqli_stmt_blind_result()
+mysqli_stmt_fetch()
+mysqli_stmt_close () V49, 21:00
+
+
+
+Conexión a BBDD con POO V51 [/conexion_POO.php]
+
+$conexion= new mysqli("localhost", "root", "", "pruebas"); V51,5:00
+$conexion->connect_errno; V51,6:00
+$conexion->set_charset("utf8");
+$resultados=$conexion->query($sql);
+if($conexion->errno)
+die($conexion->errno);
+$fila=$resultados->fetch_assoc();
+$fila=$resultados->fetch_array();
+$conexion->close();
+
+
+
+Conexión a BBDD con PDO V52 [/conpdo.php]
+
+$base=new PDO('mysql:host=localhost; dbaname=pruebas', 'root', '');
+exception
+try-catch: para trabajar con 
+
+
+Marcadores en consultas preparadas V53-54
+
+
+ARRAY DE OBJETOS. V70,18:00
+
+foreach($registros as $persona){} V.71,5:30
+
+
+BUCLE PHP PARA CÓDIGO HTML. V71,6:30
+<?php
+	foreach($registros as $persona): ?>
+
+	código HTML
+
+<?php
+	endforeach; ?>
+
+
+PASAR ID DE UN REGISTRO POR URL A OTRO ARRCHIVO QUE AFECTA ESE REGISTRO. V71,12:00
+
+Ponerle al botón la liga a donde conduce, con el Id que va a enviar al documento de destino. V71, 18:00.
+
+PHP self: enviar datos a la misma página donde se encuentra el código. V71,18:00
+
+
