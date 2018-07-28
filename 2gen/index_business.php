@@ -5,7 +5,19 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-<h1>Bienvenidoa a la aplicación para negocios</h1> <br> <br>
+
+	<?php
+
+	session_start();
+
+	if(!isset($_SESSION["usuario"])){
+
+		header("location:login_form.php"); /*V60*/
+
+	}
+	?>
+
+<h1>Bienvenidos a la aplicación para negocios</h1> <br> <br>
 
 
 <a href="local_sow_form.php">Generar Semillas</a> <br>
