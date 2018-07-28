@@ -90,6 +90,19 @@ try{
 
 	$resultado->closeCursor();
 
+
+	$sql="SELECT business_id
+					FROM business
+					WHERE business_name = :business AND customer_id = :customer";
+
+	$resultado=$base->prepare($sql); /*Consulta preparada con marcadores, V49,50,53*/
+
+	$resultado->execute(array(":business"=>$_POST["w_business_name"], ":customer"=>$_SESSION["s_customer_id"]));
+
+	$fila=$resultado->fetch(PDO::FETCH_ASSOC);
+
+	$_SESSION["s_business_id"]=$fila['business_id'];
+
 }catch(Exception $e){
 
 	echo "Línea del error: " . $e->getLine();

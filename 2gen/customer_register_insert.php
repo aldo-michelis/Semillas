@@ -8,6 +8,8 @@
 
 <?php
 
+
+
 	$fld02='customer_name';
 	$fld03='customer_last_name';
 	$fld04='customer_username';
@@ -20,7 +22,7 @@
 
 	$name=$_POST["w_customer_name"];
 	$last=$_POST["w_customer_last_name"];
-	$user=$_POST["w_customer_username"];
+	$user=$_POST["w_customer_email"];
 	$password=$_POST["w_customer_password"];
 	$birth=$_POST["w_customer_birth"];
 	$gender=$_POST["w_gender"];
@@ -78,20 +80,21 @@ try{
 
 	echo "FELICIDADES:  Has recibido una maceta de cortesía por 6 meses para comenzar a sembrar tus c-millas";
 
-	$sql2 = "SELECT customer_id FROM customer WHERE customer_username = '$user'";
+	$sql2 = "SELECT customer_id FROM customer WHERE customer_username = :user";
 
-	$resultado2=$base->query($sql2);
 
-	$Id = $resultado2->fetch(PDO::FETCH_BOTH);
+	$resultado2=$base->prepare($sql2); /*Consulta preparada con marcadores, V49,50,53*/
 
-	echo " tu ID es: " . $Id[0];
+	$resultado2->execute(array(":user"=>$user));
+
+	$fila=$resultado2->fetch(PDO::FETCH_ASSOC);
+
+	$Id = $fila['customer_id'];
+
+	echo " tu ID es: " . $Id;
 
 	$today = date("Y-m-d");
-	$six_months_date = edate("Y-m-d",mktime(0, 0, 0, date("m")+6  , date("d"), date("Y")));
-
-
-	date("Y-m-d",mktime(0, 0, 0, date("m")+6  , date("d"), date("Y")));
-
+	$six_months_date = date("Y-m-d",mktime(0, 0, 0, date("m")+6  , date("d"), date("Y")));
 
 	$sql3 = "INSERT INTO pot_taken (
 				pot_offer_id,
@@ -105,7 +108,7 @@ try{
 			VALUES (
 				'1',
 				'1',
-				'$Id[0]',
+				'$Id',
 				'$today',
 				'$six_months_date',
 				'Vacía'
@@ -113,7 +116,7 @@ try{
 
 	$resultado3=$base->query($sql3);
 
-	$resultado->closeCursor();
+	$resultado3->closeCursor();
 
 }catch(Exception $e){
 

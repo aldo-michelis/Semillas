@@ -16,8 +16,6 @@ if(!isset($_SESSION["usuario"])){
 
 }
 
-echo "Business: " . $_SESSION["s_business_id"];
-
 	$fld1="sow_lc_cds_id";
 	$fld2="type";
 	$fld3="monetary_value";
@@ -101,7 +99,7 @@ try{
 
 <br>
 <br>
-<a href="Index_Business.php" name="Volver al Menú Principal">Volver al Menú Principal</a>
+<a href="index_business.php" name="Volver al Menú Principal">Volver al Menú Principal</a>
 
 <body/>
 </html>

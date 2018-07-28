@@ -1,4 +1,4 @@
-<!DICTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Generador de Semillas Locales</title>
@@ -15,19 +15,15 @@
 	<script>
 	$( function() {
 		$( "#publication_start" ).datepicker({
-		dateFormat: 'yy-mm-dd',
-		changeYear: true,
-		yearRange: "-100:+0"
-		});
+		dateFormat: 'yy-mm-dd'
+			});
 	} );
 	</script>
 
 	<script>
 	$( function() {
 		$( "#publication_end" ).datepicker({
-		dateFormat: 'yy-mm-dd',
-		changeYear: true,
-		yearRange: "-100:+0"
+		dateFormat: 'yy-mm-dd'
 		});
 	} );
 	</script>
@@ -35,9 +31,7 @@
 	<script>
 	$( function() {
 		$( "#valid_start" ).datepicker({
-		dateFormat: 'yy-mm-dd',
-		changeYear: true,
-		yearRange: "-100:+0"
+		dateFormat: 'yy-mm-dd'
 		});
 	} );
 	</script>
@@ -45,9 +39,7 @@
 	<script>
 	$( function() {
 		$( "#valid_end" ).datepicker({
-		dateFormat: 'yy-mm-dd',
-		changeYear: true,
-		yearRange: "-100:+0"
+		dateFormat: 'yy-mm-dd'
 		});
 	} );
 	</script>
@@ -57,6 +49,21 @@
 
 
 <body>
+
+	<?php
+
+	session_start();
+
+	if(!isset($_SESSION["usuario"])){
+
+		header("location:login_form.php"); /*V60*/
+
+	}
+	?>
+
+
+
+
 	<div class="container">
 <h1 class="form-signin-heading"> Generador de Semillas</h1>
 
