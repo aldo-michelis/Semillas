@@ -8,34 +8,9 @@
 <h1>Bienvenidoa a la aplicación para negocios</h1> <br> <br>
 
 
-<a href="local_sow_form.php">Generar Semillas Locales</a> <br>
-<a href="sowed_un_cds.php">Generar Semillas Universales</a> <br>
+<a href="local_sow_form.php">Generar Semillas</a> <br>
+<!--a href="sowed_un_cds.php">Generar Semillas Universales</a> <br-->
 <a href="Gen_Pot.php">Generar Macetas</a> <br>
 
 <body/>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

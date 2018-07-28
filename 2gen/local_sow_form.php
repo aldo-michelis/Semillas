@@ -74,40 +74,32 @@
 			</select>
 		</div>
 	</div>
+
 	<div class="form-group row">
 		<div class="col-3">
-		<label for="w_monetary_value">Valor monetario de la C-milla:
-		</label>
-	 </div>
-	 <div class="col-9">
-			<input type="number" name="w_monetary_value" class="form-control">
+			<label for="w_quantity_start">Cantidad de emisiones </label>
+		</div>
+		<div class="col-9">
+			<input type="number" name="w_quantity_start" placeholder="Esribe un número" min="1" class="form-control" required>
 		</div>
 	</div>
 
 	<div class="form-group row">
 		<div class="col-3">
-		<label for="w_percent_value">Porcentaje de descuento: </label>
+		<label for="w_monetary_value">Cantidad de C-millas por emisión:
+		</label>
+	 </div>
+	 <div class="col-9">
+			<input type="number" min="1" placeholder="Esribe un número" name="w_monetary_value" class="form-control" required>
+		</div>
 	</div>
-		<div class="col-9">
-		<input type="number" name="w_percent_value">
-	</div>
-</div>
 
 <div class="form-group row">
 	<div class="col-3">
 		<label for="w_description">Descripción de la promoción: </label>
 	</div>
 	<div class="col-9">
-		<input type="text" name="w_description">
-	</div>
-</div>
-
-<div class="form-group row">
-	<div class="col-3">
-		<label for="w_quantity_start">Cantidad de C-millas: </label>
-	</div>
-	<div class="col-9">
-		<input type="number" name="w_quantity_start">
+		<input type="text" name="w_description" placeholder="Describe breve pero claramente... " class="form-control" required>
 	</div>
 </div>
 
@@ -131,7 +123,7 @@
 
 <div class="form-group row">
 	<div class="col-3">
-	<label for"w_valid_start" >Publicar desde: </label>
+	<label for"w_valid_start" >Válida desde: </label>
 </div>
 	<div class="col-9">
 		<input type="text" name="w_valid_start" id="valid_start" class="form-control" placeholder="Selecciona..." required>
@@ -140,7 +132,7 @@
 
 <div class="form-group row">
 	<div class="col-3">
-	<label for"w_valid_end" >Publicar hasta: </label>
+	<label for"w_valid_end" >Válida hasta: </label>
 </div>
 	<div class="col-9">
 		<input type="text" name="w_valid_end" id="valid_end" class="form-control" placeholder="Selecciona..." required>

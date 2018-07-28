@@ -15,7 +15,7 @@
     $( "#Nacimiento" ).datepicker({
 		dateFormat: 'yy-mm-dd',
     changeYear: true,
-		yearRange: "-100:+0"
+		yearRange: "-18:-100"
 		});
   } );
   </script>

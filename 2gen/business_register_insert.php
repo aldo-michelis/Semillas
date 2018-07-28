@@ -8,11 +8,11 @@
 <?php
 
 	session_start();
-	
+
 	if(!isset($_SESSION["usuario"])){
-		
+
 		header("location:login_form.php"); /*V60*/
-		
+
 	}
 
 ?>
@@ -31,7 +31,8 @@
 	$fld07="business_zipcode";
 	$fld08="branches_number";
 	$fld09="ops_abroad";
-		
+	$fld10="customer_id";
+
 	$VAL02=$_POST["w_business_name"];
 	$VAL03=$_POST["w_sector"];
 	$VAL04=$_POST["w_segment"];
@@ -40,27 +41,24 @@
 	$VAL07=$_POST["w_business_zipcode"];
 	$VAL08=$_POST["w_branches_number"];
 	$VAL09=$_POST["w_operations_abroad"];
+	$VAL10=$_SESSION["s_customer_id"];
+
+	include("conexion.php");
 
 try{
-
-	$base=new PDO('mysql:host=localhost; dbname=cmillas', 'root', '');
-		
-	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
-	$base->exec("SET CHARACTER SET utf8");
-
 	$sql="INSERT INTO business (
 
-				$fld02, 
-				$fld03, 
-				$fld04, 
-				$fld05, 
-				$fld06, 
-				$fld07, 
-				$fld08, 
-				$fld09
+				$fld02,
+				$fld03,
+				$fld04,
+				$fld05,
+				$fld06,
+				$fld07,
+				$fld08,
+				$fld09,
+				$fld10
 			)
-			
+
 			VALUES(
 				:2,
 				:3,
@@ -69,12 +67,13 @@ try{
 				:6,
 				:7,
 				:8,
-				:9
+				:9,
+				:10
 			)";
-	
-	
+
+
 	$resultado=$base->prepare($sql);
-	
+
 	$resultado->execute(array(
 		":2"=>$VAL02,
 		":3"=>$VAL03,
@@ -83,19 +82,23 @@ try{
 		":6"=>$VAL06,
 		":7"=>$VAL07,
 		":8"=>$VAL08,
-		":9"=>$VAL09));
+		":9"=>$VAL09,
+	  ":10"=>$VAL10
+	));
 
 	echo "Gracias por registrar tu negocio";
-	
+
 	$resultado->closeCursor();
 
 }catch(Exception $e){
-			
+
 	echo "Línea del error: " . $e->getLine();
+	echo "Línea del error: " . $e->getMessage();
 
-}	
 
-	
+}
+
+
 ?>
 
 <a href="index_business.php">Ir a la página principal de negocios</a>
