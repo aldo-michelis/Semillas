@@ -27,6 +27,8 @@ try{
 
 		$_SESSION["usuario"]=$_POST["login"];
 
+/*Traemos el id del usuario y del negocio
+(en caso de que no tenga negocio registrado, solo trae el usuario)*/
 		$sql="SELECT customer.customer_id as customer_id, business.business_id as business_id
 						FROM customer
 		 				LEFT JOIN business ON customer.customer_id = business.customer_id
@@ -34,6 +36,7 @@ try{
 
 		$resultado=$base->prepare($sql); /*Consulta preparada con marcadores, V49,50,53*/
 
+		//se encripta el password ingresado para compararlo con el de la BD previamnte encriptado)
 		$resultado->execute(array(":login"=>$_POST["login"], ":password"=>sha1($_POST["password"])));
 
 		$fila=$resultado->fetch(PDO::FETCH_ASSOC);

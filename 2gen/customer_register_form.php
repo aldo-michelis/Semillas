@@ -12,7 +12,7 @@
 		<link href="css/custom.css" rel="stylesheet">
 	<script>
   $( function() {
-    $( "#Nacimiento" ).datepicker({
+    $( "#birth" ).datepicker({
 		dateFormat: 'yy-mm-dd',
     changeYear: true,
 		yearRange: "-100:-18"
@@ -30,35 +30,35 @@
 
 				<div class="form-group row">
 					<div class="col-3">
-						<label for="Nombre">Nombre</label>
+						<label for="name">Nombre: </label>
 					</div>
 						<div class="col-9">
 
-						<input type="text" name="w_customer_name" id="Nombre" placeholder="Nombre" class="form-control" required>
+						<input type="text" name="w_customer_name" id="name" placeholder="Nombre" class="form-control" required>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<div class="col-3">
-						<label for="Apellidos">Apellidos</label>
+						<label for="last">Apellidos: </label>
 					</div>
 					<div class="col-9">
-						<input type="text" name="w_customer_last_name" id="Apellidos" placeholder="Apellidos" class="form-control" required>
+						<input type="text" name="w_customer_last_name" id="last" placeholder="Apellidos" class="form-control" required>
 					</div>
 				</div>
 
 			 <div class="form-group row">
 				 <div class="col-3">
-				 <label for="Username">E-mail</label>
+				 <label for="customer_username">E-mail: </label>
 			 </div>
 				 <div class="col-9">
-					 <input type="email" name="w_customer_email" id="Username"  class="form-control" placeholder="Email" required>
+					 <input type="email" name="w_customer_username" id="customer_username"  class="form-control" placeholder="Email" required>
 				 </div>
 			 </div>
 
 			<div class="form-group row">
 				<div class="col-3">
-				<label for="Username" >Celular</label>
+				<label for="phone">Celular: </label>
 			</div>
 				<div class="col-9">
 					<input type="text" name="w_customer_phone" id="phone" class="form-control" placeholder="Teléfono móvil" required>
@@ -68,10 +68,10 @@
 
 			<div class="form-group row">
 				<div class="col-3">
-				<label for="Password" >Contraseña</label>
+				<label for="password">Contraseña: </label>
 			</div>
 				<div class="col-9">
-					<input type="password" name="w_customer_password" id="Password" class="form-control" placeholder="Contraseña" required>
+					<input type="password" name="w_customer_password" id="password" class="form-control" placeholder="Contraseña" required>
 				</div>
 			</div>
 
@@ -87,19 +87,19 @@
 
 			<div class="form-group row">
 				<div class="col-3">
-				<label for"Nacimiento" >Fecha de nacimiento</label>
+				<label for"birth" >Fecha de nacimiento</label>
 			</div>
 				<div class="col-9">
-					<input type="text" name="w_customer_birth" id="Nacimiento" class="form-control" placeholder="Selecciona..." required>
+					<input type="text" name="w_customer_birth" id="birth" class="form-control" placeholder="Selecciona..." required>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<div class="col-3">
-				<label for=ubicacion>País</label>
+				<label for=location>País</label>
 			</div>
 				<div class="col-9">
-					<select name="w_customer_locaton" id="Ubicación"  class="form-control">
+					<select name="w_customer_locaton" id="location"  class="form-control">
 						<option>Argentina</option>
 					  <option>Bolivia</option>
 					  <option>Chile</option>
@@ -125,16 +125,16 @@
 			</div>
 
 			<fieldset class="form-group">
-				<legend>Género</legend>
+				<legend for="gender">Género</legend>
 				<div class="form-check form-check-inline">
 					<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="w_gender" id="Genero1" value="M" checked>
+								<input type="radio" class="form-check-input" name="w_gender" id="gender1" value="M" checked>
 						Masculino
 					</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="w_gender" id="Genero2" value="F">
+						<input type="radio" class="form-check-input" name="w_gender" id="gender2" value="F">
 						Femenino
 					</label>
 				</div>

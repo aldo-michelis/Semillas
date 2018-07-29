@@ -106,7 +106,7 @@
 		<label for="w_description">Descripción de la promoción: </label>
 	</div>
 	<div class="col-9">
-		<input type="text" name="w_description" placeholder="Describe breve pero claramente... " class="form-control" required>
+		<input type="text" name="w_description" placeholder="Describe brevemente... " class="form-control" required>
 	</div>
 </div>
 

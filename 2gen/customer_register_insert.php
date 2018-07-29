@@ -22,12 +22,12 @@
 
 	$name=$_POST["w_customer_name"];
 	$last=$_POST["w_customer_last_name"];
-	$user=$_POST["w_customer_email"];
+	$user=$_POST["w_customer_username"];
 	$password=$_POST["w_customer_password"];
 	$birth=$_POST["w_customer_birth"];
 	$gender=$_POST["w_gender"];
 	$location=$_POST["w_customer_locaton"];
-	$email=$_POST["w_customer_email"];
+	$email=$_POST["w_customer_username"];
 	$phone=$_POST["w_customer_phone"];
 	$password_crypt=sha1($password);
 
@@ -93,8 +93,9 @@ try{
 
 	echo " tu ID es: " . $Id;
 
-	$today = date("Y-m-d");
-	$six_months_date = date("Y-m-d",mktime(0, 0, 0, date("m")+6  , date("d"), date("Y")));
+	$today = date("Y-m-d"); //fecha actual
+	$six_months_date =
+		date("Y-m-d",mktime(0, 0, 0, date("m")+6  , date("d"), date("Y"))); //fecha dentro de seis meses
 
 	$sql3 = "INSERT INTO pot_taken (
 				pot_offer_id,
