@@ -37,7 +37,7 @@ include("conexion.php");
 
 try{
 
-	$sql="INSERT INTO CUSTOMER (
+	$sql="INSERT INTO customer (
 
 				$fld02,
 				$fld03,
