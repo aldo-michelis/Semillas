@@ -101,7 +101,25 @@ try{
 
 	$fila=$resultado->fetch(PDO::FETCH_ASSOC);
 
-	$_SESSION["s_business_id"]=$fila['business_id'];
+	$business = $fila['business_id'];
+
+	$_SESSION["s_business_id"]=$business;
+
+
+//Insertamos en la tabla que irá aactualizando balance
+	$sql_balance= "INSERT INTO business_balance (
+				business_id,
+				b_balance
+			)
+
+			VALUES(
+				'$business',
+				0
+			)";
+
+	$resultado_balance=$base->query($sql_balance);
+
+	$resultado_balance->closeCursor();
 
 }catch(Exception $e){
 

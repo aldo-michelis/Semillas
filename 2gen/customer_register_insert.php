@@ -119,6 +119,21 @@ try{
 
 	$resultado3->closeCursor();
 
+	//Insertamos en la tabla que irá aactualizando balance
+		$sql_balance="INSERT INTO customer_balance (
+					customer_id,
+					c_balance
+				)
+
+				VALUES(
+					'$Id',
+					0
+				)";
+
+
+				$resultado_balance=$base->query($sql_balance);
+				$resultado_balance->closeCursor();
+
 }catch(Exception $e){
 
 	echo "<br> Línea del error: " . $e->getLine();
