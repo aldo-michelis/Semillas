@@ -34,21 +34,32 @@
 
 	include("conexion.php");
 
-	$l_code=$_GET["w_redeem_code"];
-	$l_monetary=$_GET["monetary_value"];
-	$l_type=$_GET["type"];
-	$l_customer=$_GET["customer_id"];
+	$l_code=$_GET["code"];
+
+
+try {
+	$sql = "SELECT local_plant.local_sow_id AS local_sow_id,
+					monetary_value, description, type, customer_id, local_plant.business_id AS business_id
+		FROM local_plant
+		JOIN local_sow ON local_plant.local_sow_id = local_sow.local_sow_id
+		WHERE code = '$l_code'";
+
+	$resultado = $base->query($sql);
+	$fila = $resultado->fetch(PDO::FETCH_ASSOC);
+
+	$l_monetary=$fila["monetary_value"];
+	$l_type=$fila["type"];
+	$l_customer=$fila["customer_id"];
+	$business_id=$fila["business_id"];
 
 	echo "El código es: " . $l_code;
 	echo "<br>El número de C-millas redimidas es: " . $l_monetary;
 	echo "<br>El tipo de C-milla es: " . $l_type;
 	echo "<br>El cliente que redime es: " . $l_customer;
 
-	$sql = "SELECT business_id FROM local_plant WHERE code = '$l_code'";
-	$resultado = $base->query($sql);
-	$business_id = $resultado->fetch(PDO::FETCH_BOTH);
 
-	echo " <br> El negocio que realizó la redención es: " . $business_id[0];
+
+	echo " <br> El negocio que realizó la redención es: " . $business_id;
 
 	if($l_type == 'Local'){
 
@@ -56,7 +67,7 @@
 		$resultado2=$base->query($sql2);
 		echo "<br>Esta fue una redención Local";
 
-	}else{ 
+	}else{
 		if ($l_type == 'Universal') {
 			$sql3 = "UPDATE business_balance SET b_balance = b_balance - $l_monetary WHERE business_id = $business_id[0]";
 			$resultado3=$base->query($sql3);
@@ -69,6 +80,13 @@
 
 		}
 	}
+} catch (Exception $e) {
+
+echo "<br> Línea del error: " . $e->getLine();
+echo "<br> Mensaje del error: " . $e->getMessage();
+
+}
+
 
 
 ?>
