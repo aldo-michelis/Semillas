@@ -87,7 +87,7 @@
 			<label for="w_quantity_start">Cantidad de emisiones </label>
 		</div>
 		<div class="col-9">
-			<input type="number" name="w_quantity_start" placeholder="Esribe un número" min="1" class="form-control" required>
+			<input type="number" name="w_quantity_start" placeholder="Escribe un número" min="1" class="form-control" required>
 		</div>
 	</div>
 
